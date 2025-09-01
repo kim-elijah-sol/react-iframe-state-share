@@ -31,6 +31,8 @@ importers:
         specifier: ^7.1.3
         version: 7.1.3
 
+  apps/child-app: {}
+
   apps/parent-app: {}
 
 packages:

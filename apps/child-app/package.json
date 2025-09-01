@@ -1,0 +1,8 @@
+{
+  "name": "@riss/child-app",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite"
+  },
+  "packageManager": "pnpm@10.15.0"
+}
