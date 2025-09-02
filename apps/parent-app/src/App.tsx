@@ -1,10 +1,12 @@
 import './App.css';
+import { Counter } from './domain/Counter';
 
 function App() {
   return (
     <main className='app'>
       <div>
         <h1>부모 창</h1>
+        <Counter />
       </div>
       <div>
         <iframe src='https://riss-child.run.goorm.site' />
