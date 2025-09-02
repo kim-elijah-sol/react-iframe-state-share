@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.app > div {
+  flex: 1;
+  padding: 24px 30px;
+}
+
+.app > div:first-of-type {
+  border-right: 1px solid #000;
+}
+
+iframe {
+  border: none;
+}
