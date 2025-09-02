@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 function useCounter() {
   const [count, setCount] = useState<number>(0);
@@ -12,6 +12,20 @@ function useCounter() {
     (diff: number = 1) => setCount((count) => count - diff),
     []
   );
+
+  useEffect(() => {
+    const iframe = document.querySelector('iframe')!;
+
+    iframe.contentWindow?.postMessage(
+      {
+        type: 'COUNTER_CHANGE',
+        data: {
+          count,
+        },
+      },
+      '*'
+    );
+  }, [count]);
 
   return [count, increase, decrease] as const;
 }
