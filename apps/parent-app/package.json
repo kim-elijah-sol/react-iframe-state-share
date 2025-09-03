@@ -4,5 +4,8 @@
   "scripts": {
     "dev": "vite"
   },
-  "packageManager": "pnpm@10.15.0"
+  "packageManager": "pnpm@10.15.0",
+  "dependencies": {
+    "@riss/hooks": "workspace:*"
+  }
 }

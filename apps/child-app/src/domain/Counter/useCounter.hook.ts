@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useFirstIgnoreEffect } from '@riss/hooks';
 
 function useCounter() {
   const [count, setCount] = useState<number>(0);
@@ -12,6 +13,18 @@ function useCounter() {
     (diff: number = 1) => setCount((count) => count - diff),
     []
   );
+
+  useFirstIgnoreEffect(() => {
+    window.parent.postMessage(
+      {
+        type: 'COUNTER_CHANGE',
+        data: {
+          count,
+        },
+      },
+      '*'
+    );
+  }, [count]);
 
   useEffect(() => {
     const eventHandler: (event: MessageEvent) => void = (event) => {
@@ -30,18 +43,6 @@ function useCounter() {
       window.removeEventListener('message', eventHandler);
     };
   }, []);
-
-  useEffect(() => {
-    window.parent.postMessage(
-      {
-        type: 'COUNTER_CHANGE',
-        data: {
-          count,
-        },
-      },
-      '*'
-    );
-  }, [count]);
 
   return [count, increase, decrease] as const;
 }

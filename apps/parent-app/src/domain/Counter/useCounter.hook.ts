@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useFirstIgnoreEffect } from '@riss/hooks';
 
 function useCounter() {
   const [count, setCount] = useState<number>(0);
@@ -13,7 +14,7 @@ function useCounter() {
     []
   );
 
-  useEffect(() => {
+  useFirstIgnoreEffect(() => {
     const iframe = document.querySelector('iframe')!;
 
     iframe.contentWindow?.postMessage(
