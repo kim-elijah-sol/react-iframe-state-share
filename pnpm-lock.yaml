@@ -35,6 +35,8 @@ importers:
 
   apps/parent-app: {}
 
+  packages/hooks: {}
+
 packages:
 
   '@ampproject/remapping@2.3.0':

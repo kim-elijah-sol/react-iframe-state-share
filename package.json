@@ -2,7 +2,8 @@
   "name": "iframe-state-share",
   "version": "1.0.0",
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ],
   "packageManager": "pnpm@10.15.0",
   "devDependencies": {
