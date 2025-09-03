@@ -27,6 +27,24 @@ function useCounter() {
     );
   }, [count]);
 
+  useEffect(() => {
+    const eventHandler: (event: MessageEvent) => void = (event) => {
+      if (event.origin !== 'https://riss-child.run.goorm.site') return;
+
+      const data = event.data as { type: string; data: { count: number } };
+
+      if (data.type === 'COUNTER_CHANGE') {
+        setCount(data.data.count);
+      }
+    };
+
+    window.addEventListener('message', eventHandler);
+
+    return () => {
+      window.removeEventListener('message', eventHandler);
+    };
+  }, []);
+
   return [count, increase, decrease] as const;
 }
 

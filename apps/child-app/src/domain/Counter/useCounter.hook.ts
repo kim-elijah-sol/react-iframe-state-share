@@ -31,6 +31,18 @@ function useCounter() {
     };
   }, []);
 
+  useEffect(() => {
+    window.parent.postMessage(
+      {
+        type: 'COUNTER_CHANGE',
+        data: {
+          count,
+        },
+      },
+      '*'
+    );
+  }, [count]);
+
   return [count, increase, decrease] as const;
 }
 
