@@ -1,6 +1,9 @@
 {
   "name": "iframe-state-share",
   "version": "1.0.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @riss/parent-app --filter @riss/child-app dev"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
